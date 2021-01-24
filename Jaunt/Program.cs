@@ -1,6 +1,4 @@
-﻿using System;
-using System.Drawing;
-using Pastel;
+﻿using System.Drawing;
 using static Jaunt.Engine;
 using static Jaunt.Dialog;
 
@@ -13,8 +11,8 @@ namespace Jaunt
         {
             ConsoleFormat();
             BannerAnimation(jaunt, Color.Turquoise, Color.BlueViolet);
-            TextDelayF(ch1_01, Color.Turquoise, Objects());
-            Advance("What will you do?".Pastel(Color.Tomato), "examine shimmer");
+            TextDelayFormatter(ch1_01, Objects(), Color.Turquoise);
+            Advance("What will you do?", "examine shimmer", Color.DodgerBlue);
         }
     }
 }

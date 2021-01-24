@@ -54,7 +54,7 @@ namespace Jaunt
             Console.Clear();
             Console.CursorVisible = true;
         }
-        public static void TextDelayF(string message, Color color, Formatter[] formatter, int delay = (int)Speed.Faster)
+        public static void TextDelayFormatter(string message, Formatter[] formatter, Color color, int delay = (int)Speed.Faster)
         {
             var messageList = Regex.Split(message, @"{\d+}").Select(x => (x, color)).ToList();
             for (int i = 0; i < formatter.Length; ++i)
@@ -63,27 +63,38 @@ namespace Jaunt
             }
             foreach (var (subMessage, messageColor) in messageList)
             {
-
                 foreach (char character in subMessage)
                 {
                     SoundBeep(150, 350, delay);
                     Console.Write(character, messageColor);
-                    Thread.Sleep(delay);
+                    Sleep(delay);
                 }
             }
-            Sleep(Speed.Slow);
+
+            Sleep(Speed.Medium);
             Console.WriteLine();
         }
 
-        public static void TextDelay(string message, Color color, int delay = (int)Speed.Faster)
+        public static void Advance(string writeOutput, string required, Color color, int delay = (int)Speed.Faster)
         {
-            foreach (char character in message)
+            string input;
+
+            foreach (char character in writeOutput)
             {
                 SoundBeep(150, 350, delay);
                 Console.Write(character, color);
-                Thread.Sleep(delay);
-            }
+                Sleep(delay);
 
+            }
+            Console.WriteLine();
+            input = Console.ReadLine();
+
+            while (!input.Equals(required, StringComparison.OrdinalIgnoreCase))
+            {
+                string redo = "Try Again.";
+                Console.WriteLine(redo.Pastel(Color.Red));
+                input = Console.ReadLine();
+            }
         }
 
         public static Formatter[] Objects()
@@ -93,19 +104,6 @@ namespace Jaunt
                 new Formatter("shimmer", Color.GreenYellow)
             };
             return coloredText;
-        }
-
-        public static void Advance(string writeOutput, string required)
-        {
-            string input;
-            Console.WriteLine(writeOutput, Color.BlanchedAlmond);
-            input = Console.ReadLine();
-
-            while (!input.Equals(required, StringComparison.OrdinalIgnoreCase))
-            {
-                Console.WriteLine("Try Again".Pastel(Color.Red));
-                input = Console.ReadLine();
-            }
         }
 
         public static float Lerp(float value1, float value2, float lerpAmount)
