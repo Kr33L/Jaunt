@@ -1,18 +1,17 @@
-﻿using System.Drawing;
-using static Jaunt.Engine;
+﻿using static Jaunt.Engine;
 using static Jaunt.Dialog;
+using static Jaunt.Prefabs;
 
 namespace Jaunt
 {
     class Program
     {
         static void Main()
-
         {
             ConsoleFormat();
-            BannerAnimation(jaunt, Color.Turquoise, Color.BlueViolet);
-            TextDelayFormatter(ch1_01, Objects(), Color.Turquoise);
-            Advance("What will you do?", "examine shimmer", Color.DodgerBlue);
+            BannerAnimation(jaunt, MyColor(Hex.Mint), MyColor(Hex.Purple));
+            TextDelay(ch1_01, Objects(), MyColor(Hex.Blue));
+            Advance("What will you do?", "examine shimmer", MyColor(Hex.Pink));
         }
     }
 }
