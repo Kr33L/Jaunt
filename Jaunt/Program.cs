@@ -1,17 +1,16 @@
-﻿using static Jaunt.Engine;
-using static Jaunt.Dialog;
-using static Jaunt.Prefabs;
+﻿using static Jaunt.MainEngine;
+using static Jaunt.SubEngine;
+using static Jaunt.Dialogue;
+using static Jaunt.Prefab;
 
-namespace Jaunt
-{
-    class Program
-    {
-        static void Main()
-        {
+namespace Jaunt {
+    class Program {
+        static void Main() {
             ConsoleFormat();
-            BannerAnimation(jaunt, MyColor(Hex.Mint), MyColor(Hex.Purple));
-            TextDelay(ch1_01, Objects(), MyColor(Hex.Blue));
-            Advance("What will you do?", "examine shimmer", MyColor(Hex.Pink));
+            WriteBanner(titleBanner, MyColor(Palette.Gold), MyColor(Palette.Black));
+            WriteBanner(chapterOne, MyColor(Palette.Gray), MyColor(Palette.Gold));
+            WriteText(ch1_01, Object(), MyColor(Palette.Green));
+            Advance("What will you do?", "examine shimmer", MyColor(Palette.Gold));
         }
     }
 }
