@@ -26,6 +26,5 @@ namespace Jaunt {
 
         public static void Wait(int ms) => Thread.Sleep(ms);
 
-
     }
 }
