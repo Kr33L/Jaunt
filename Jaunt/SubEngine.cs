@@ -3,7 +3,6 @@ using System.Drawing;
 using System.Threading;
 using Console = Colorful.Console;
 
-
 namespace Jaunt {
     class SubEngine {
         public static void PlayBeep(int minFrequency, int maxFrequency, int delay) {
@@ -26,6 +25,7 @@ namespace Jaunt {
         public static Color MyColor(int hexCode) => ColorTranslator.FromHtml(hexCode.ToString());
 
         public static void Wait(int ms) => Thread.Sleep(ms);
+
 
     }
 }

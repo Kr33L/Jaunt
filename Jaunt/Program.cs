@@ -7,9 +7,9 @@ namespace Jaunt {
     class Program {
         static void Main() {
             ConsoleFormat();
-            WriteBanner(titleBanner, MyColor(Palette.Gold), MyColor(Palette.Black));
-            WriteBanner(chapterOne, MyColor(Palette.Gray), MyColor(Palette.Gold));
-            WriteText(ch1_01, Object(), MyColor(Palette.Green));
+            WriteBanner(titleBanner, MyColor(Palette.Orange), MyColor(Palette.Green));
+            WriteBanner(chapterOne, MyColor(Palette.Black), MyColor(Palette.Gold));
+            WriteText(ch1_01, Object(), MyColor(Palette.Orange));
             Advance("What will you do?", "examine shimmer", MyColor(Palette.Gold));
         }
     }

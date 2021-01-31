@@ -19,14 +19,13 @@ namespace Jaunt {
                 Console.WriteLine(centerText + bannerMessage[i], ColorLerp(startColor, endColor, (float)i / (bannerMessage.Length - 1)));
                 PlayBeep(BeepFrequency.iBannerMinFreq, BeepFrequency.iBannerMaxFreq, delay);
             }
-
             Wait(TextSpeed.bannerEnd);
             Console.Clear();
             Console.CursorVisible = true;
         }
 
-        public static void WriteText(string message, Formatter[] itemFormat, Color Color, int delay = TextSpeed.Fast) {
-            var messageList = Regex.Split(message, @"{\d+}").Select(x => (x, Color)).ToList();
+        public static void WriteText(string message, Formatter[] itemFormat, Color color, int delay = TextSpeed.Fast) {
+            var messageList = Regex.Split(message, @"{\d+}").Select(x => (x, color)).ToList();
 
             for(int i = 0;i < itemFormat.Length;++i) {
                 messageList.Insert(1 + i * 2, ((string)itemFormat[i].Target, itemFormat[i].Color));
@@ -58,6 +57,5 @@ namespace Jaunt {
                 input = Console.ReadLine();
             }
         }
-
     }
 }
